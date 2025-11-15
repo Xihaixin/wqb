@@ -19,3 +19,10 @@ tmp*
 *.out
 *.temp
 *.tmp
+
+venv/
+.env
+*.md
+wqb/dataset/
+wqb/alphaset
+wqb/alpha_template/
