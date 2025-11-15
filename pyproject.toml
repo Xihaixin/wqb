@@ -3,14 +3,14 @@ requires = ['setuptools', 'wheel']
 build-backend = 'setuptools.build_meta'
 
 [project]
-name = 'wqb'
+name = 'wqb_machine'
 dynamic = ['version']
-authors = [{ name = 'Rocky Haotian Du', email = 'rocky_d@yeah.net' }]
-description = 'A better machine lib.'
+authors = [{ name = 'haiShen', email = 'xihaishen69@gmail.com' }]
+description = 'A better machine lib and provide alpha templates.'
 license = { file = 'LICENSE' }
 readme = 'README.md'
 requires-python = '>=3.11'
-dependencies = ['requests']
+dependencies = ['requests','pandas']
 classifiers = [
     'Intended Audience :: Developers',
     'License :: OSI Approved :: MIT License',
@@ -23,7 +23,7 @@ classifiers = [
 ]
 
 [project.urls]
-repository = 'https://github.com/rocky-d/wqb'
+repository = 'https://github.com/Xihaixin/wqb'
 
 [tool.setuptools.packages.find]
 include = ['wqb']
