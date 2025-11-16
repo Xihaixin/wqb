@@ -12,7 +12,8 @@ from itertools import combinations
 from collections import defaultdict
 import pickle
 from wqb.config import enVars 
- 
+
+
 basic_ops = ["reverse", "inverse", "rank", "zscore", "quantile", "normalize"]
  
 ts_ops = ["ts_rank", "ts_zscore", "ts_delta",  "ts_sum", "ts_delay", 

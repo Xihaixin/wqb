@@ -58,7 +58,6 @@ from . import datetime_range
 from . import filter_range
 from . import wqb_session
 from . import wqb_urls
-from .machine_lib import *
 
 __all__ = (
     auto_auth_session.__all__
@@ -74,4 +73,3 @@ from .datetime_range import *
 from .filter_range import *
 from .wqb_session import *
 from .wqb_urls import *
-from .machine_lib import *
