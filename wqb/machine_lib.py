@@ -1,5 +1,5 @@
+import os 
 import requests
-from os import environ
 from time import sleep
 import time
 import json
@@ -12,7 +12,7 @@ from itertools import combinations
 from collections import defaultdict
 import pickle
 from wqb.config import enVars 
-
+from typing import str
 
 basic_ops = ["reverse", "inverse", "rank", "zscore", "quantile", "normalize"]
  
@@ -60,7 +60,10 @@ def get_datafields(
     delay: int = 1,
     universe: str = 'TOP3000',
     dataset_id: str = '',
-    search: str = ''
+    search: str = '',
+    save_json: bool = False,
+    json_save_path: str = "../out",
+    file_name: str = "data.json"
 ):
     if len(search) == 0:
         url_template = "https://api.worldquantbrain.com/data-fields?" +\
@@ -78,13 +81,32 @@ def get_datafields(
         count = 100
     
     datafields_list = []
+    full_response = []
     for x in range(0, count, 50):
         datafields = s.get(url_template.format(x=x))
-        datafields_list.append(datafields.json()['results'])
+        response = datafields.json()
+        full_response.append(response)
+        datafields_list.append(response['results'])
  
     datafields_list_flat = [item for sublist in datafields_list for item in sublist]
  
     datafields_df = pd.DataFrame(datafields_list_flat)
+
+    if save_json:
+
+        if not os.path.exists(json_save_path):
+            os.makedirs(json_save_path, exist_ok=True)
+
+        save_path = os.path.join(json_save_path, file_name)
+        
+        with open(save_path, "w", encoding="utf-8") as f:
+            json.dump(
+                full_response,
+                f,
+                ensure_ascii=False,
+                indent=2
+            )
+        print(f"The response result has saved to: {save_path.resolve()}")
     return datafields_df
 
 def get_vec_fields(fields):
