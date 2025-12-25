@@ -1,6 +1,9 @@
 import asyncio
 from wqb import WQBSession
 from wqb.config import enVars
+import requests
+
+resp = requests.get()
 
 envars = enVars.get_env_vars()
 

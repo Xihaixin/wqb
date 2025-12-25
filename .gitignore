@@ -9,7 +9,6 @@ dist/
 draft*
 local*
 log*
-out*
 temp*
 tmp*
 
@@ -22,6 +21,6 @@ tmp*
 
 venv/
 .env
-*.md
+out/*.json
 wqb/dataset/
 wqb/alphaset
